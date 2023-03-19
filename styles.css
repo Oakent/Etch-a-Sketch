@@ -1,0 +1,7 @@
+#container{
+    display: grid;
+}
+div{
+    border: 5px,black;
+    margin: 5px, blue;
+}
