@@ -13,7 +13,6 @@ reset.addEventListener("click", (e) => {
 slider.addEventListener("input", (e) => {
   current.innerHTML = "Current size: " + slider.value;
   createBoard(slider.value);
-  console.log("slider input");
 });
 
 clearBoard = () => {
@@ -31,13 +30,14 @@ createBoard = (size) => {
     gridSquare.style.height = 800 / size + "px";
     container.appendChild(gridSquare);
   }
+  draw();
 };
 
-const divs = document.querySelectorAll(".grid-element");
-
-divs.forEach((square) => {
-  square.addEventListener("mouseover", (e) => {
-    console.log("hover event");
-    square.classList.add("hovered");
+draw = () => {
+  const divs = document.querySelectorAll(".grid-element");
+  divs.forEach((square) => {
+    square.addEventListener("mouseover", (e) => {
+      square.classList.add("hovered");
+    });
   });
-});
+};
