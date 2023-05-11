@@ -83,7 +83,6 @@ draw = () => {
       if ((mouseDown == true && mode == 0) || mode == 1) {
         currentColour = changeColour(j);
         j = j + 0.5;
-        console.log(currentColour);
         square.style.backgroundColor = currentColour;
         square.classList.add("hovered");
       }
