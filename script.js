@@ -11,6 +11,7 @@ const btnRainbow = document.getElementById("btnRainbow");
 const btnColour = document.getElementById("btnColour");
 let currentColour = colour.value;
 let mode = 1;
+let j = 0;
 //mode 0=hold 1=nohold
 let mouseDown;
 document.body.onmousedown = () => {
@@ -80,9 +81,24 @@ draw = () => {
   divs.forEach((square) => {
     square.addEventListener("mouseover", (e) => {
       if ((mouseDown == true && mode == 0) || mode == 1) {
+        currentColour = changeColour(j);
+        j = j + 0.5;
+        console.log(currentColour);
         square.style.backgroundColor = currentColour;
         square.classList.add("hovered");
       }
     });
   });
+};
+
+changeColour = (j) => {
+  if (btnRainbow.checked == true) {
+    let frequency = 0.2;
+    red = Math.sin(frequency * j + 0) * 129 + 130;
+    green = Math.sin(frequency * j + 2) * 129 + 130;
+    blue = Math.sin(frequency * j + 4) * 129 + 130;
+    rgbColour = "rgb(" + red + "," + green + "," + blue + ")";
+    currentColour = rgbColour;
+    return currentColour;
+  }
 };
