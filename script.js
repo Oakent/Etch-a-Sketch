@@ -3,7 +3,7 @@ let slider = document.getElementById("slider");
 let current = document.getElementById("currentSize");
 
 const reset = document.getElementById("btnReset");
-
+createBoard(16);
 reset.addEventListener("click", (e) => {
   divs.forEach((square) => {
     square.classList.remove("hovered");
