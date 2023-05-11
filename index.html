@@ -12,7 +12,20 @@
     <div id="container"></div>
     <button id="btnReset">Reset Grid</button>
     <label for="slider">Adjust Grid size</label>
-    <input type="range" min="2" max="64" value="16" id="slider" />
+    <input type="range" min="2" max="100" value="16" id="slider" />
     <p id="currentSize">Current size: 16</p>
+    <p>Colour mode</p>
+    <button id="btnColour" class="btn">Colour</button>
+    <input type="color" name="Pick Colour" id="colorpicker" />
+    <br />
+    <button id="btnEraser" class="btn">Eraser</button>
+    <br />
+    <button id="btnRainbow" class="btn">Rainbow</button>
+    <br />
+    <p>Drawing mode</p>
+    <label for="mode1">Always drawing</label>
+    <input type="radio" name="mode" id="mode1" checked="true" />
+    <label for="mode0">Hold mouse</label>
+    <input type="radio" name="mode" id="mode0" />
   </body>
 </html>

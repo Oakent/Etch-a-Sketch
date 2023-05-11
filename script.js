@@ -3,14 +3,45 @@ let slider = document.getElementById("slider");
 let current = document.getElementById("currentSize");
 const divs = document.querySelectorAll(".grid-element");
 const reset = document.getElementById("btnReset");
+const colour = document.getElementById("colorpicker");
+const btnEraser = document.getElementById("btnEraser");
+const btnHold = document.getElementById("mode0");
+const btnNohold = document.getElementById("mode1");
+let currentColour = colour.value;
+let mode = 1;
+//mode 0=hold 1=nohold
+let mouseDown;
+document.body.onmousedown = () => {
+  mouseDown = true;
+};
+
+document.body.onmouseup = () => {
+  mouseDown = false;
+};
+
+btnHold.addEventListener("click", () => {
+  mode = 0;
+});
+
+btnNohold.addEventListener("click", () => {
+  mode = 1;
+});
 
 window.addEventListener("DOMContentLoaded", (e) => {
   createBoard(slider.value);
 });
 
+btnEraser.addEventListener("click", () => {
+  currentColour = "#ffffff";
+});
+
 reset.addEventListener("click", (e) => {
   clearBoard();
   createBoard(slider.value);
+});
+
+colour.addEventListener("change", () => {
+  currentColour = colour.value;
 });
 
 slider.addEventListener("input", (e) => {
@@ -40,7 +71,10 @@ draw = () => {
   const divs = document.querySelectorAll(".grid-element");
   divs.forEach((square) => {
     square.addEventListener("mouseover", (e) => {
-      square.classList.add("hovered");
+      if ((mouseDown == true && mode == 0) || mode == 1) {
+        square.style.backgroundColor = currentColour;
+        square.classList.add("hovered");
+      }
     });
   });
 };
