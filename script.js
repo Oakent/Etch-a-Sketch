@@ -7,6 +7,8 @@ const colour = document.getElementById("colorpicker");
 const btnEraser = document.getElementById("btnEraser");
 const btnHold = document.getElementById("mode0");
 const btnNohold = document.getElementById("mode1");
+const btnRainbow = document.getElementById("btnRainbow");
+const btnColour = document.getElementById("btnColour");
 let currentColour = colour.value;
 let mode = 1;
 //mode 0=hold 1=nohold
@@ -19,6 +21,10 @@ document.body.onmouseup = () => {
   mouseDown = false;
 };
 
+window.addEventListener("DOMContentLoaded", (e) => {
+  createBoard(slider.value);
+});
+
 btnHold.addEventListener("click", () => {
   mode = 0;
 });
@@ -27,12 +33,24 @@ btnNohold.addEventListener("click", () => {
   mode = 1;
 });
 
-window.addEventListener("DOMContentLoaded", (e) => {
-  createBoard(slider.value);
+btnColour.addEventListener("click", () => {
+  btnColour.style.classList.add("active");
+  btnRainbow.style.classList.remove("active");
+  btnEraser.style.classList.remove("active");
+  currentColour = colour.value;
+});
+
+btnRainbow.addEventListener("click", () => {
+  btnColour.style.classList.remove("active");
+  btnRainbow.style.classList.add("active");
+  btnEraser.style.classList.remove("active");
 });
 
 btnEraser.addEventListener("click", () => {
   currentColour = "#ffffff";
+  btnColour.style.classList.remove("active");
+  btnRainbow.style.classList.remove("active");
+  btnEraser.style.classList.add("active");
 });
 
 reset.addEventListener("click", (e) => {

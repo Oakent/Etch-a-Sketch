@@ -19,7 +19,7 @@
   }
   
   /* Style the active class (and buttons on mouse-over) */
-  .active, .btn:hover {
+.active, .btn:hover {
     background-color: gray;
     color: white;
   }
