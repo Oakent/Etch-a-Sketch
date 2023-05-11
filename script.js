@@ -1,6 +1,43 @@
 const container = document.getElementById("container");
-for (let i = 0; i < 16; i++) {
-  const gridSquare = document.createElement("div");
-  gridSquare.classList.add("grid-element");
-  container.appendChild(gridSquare);
-}
+let slider = document.getElementById("slider");
+let current = document.getElementById("currentSize");
+
+const reset = document.getElementById("btnReset");
+
+reset.addEventListener("click", (e) => {
+  divs.forEach((square) => {
+    square.classList.remove("hovered");
+  });
+});
+
+slider.addEventListener("input", (e) => {
+  current.innerHTML = "Current size: " + slider.value;
+  createBoard(slider.value);
+  console.log("slider input");
+});
+
+clearBoard = () => {
+  while (container.firstChild) {
+    container.removeChild(container.firstChild);
+  }
+};
+
+createBoard = (size) => {
+  clearBoard();
+  for (let i = 0; i < size ** 2; i++) {
+    const gridSquare = document.createElement("div");
+    gridSquare.classList.add("grid-element");
+    gridSquare.style.width = 800 / size + "px";
+    gridSquare.style.height = 800 / size + "px";
+    container.appendChild(gridSquare);
+  }
+};
+
+const divs = document.querySelectorAll(".grid-element");
+
+divs.forEach((square) => {
+  square.addEventListener("mouseover", (e) => {
+    console.log("hover event");
+    square.classList.add("hovered");
+  });
+});

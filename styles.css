@@ -1,7 +1,15 @@
 #container{
-    display: grid;
+    height: 800px;
+    width: 800px;
+    border: 1px solid green;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    float: left;
 }
-div{
-    border: 5px,black;
-    margin: 5px, blue;
+.grid-element{
+}
+.hovered{
+    background-color: black;
 }
