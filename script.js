@@ -34,23 +34,13 @@ btnNohold.addEventListener("click", () => {
 });
 
 btnColour.addEventListener("click", () => {
-  btnColour.style.classList.add("active");
-  btnRainbow.style.classList.remove("active");
-  btnEraser.style.classList.remove("active");
   currentColour = colour.value;
 });
 
-btnRainbow.addEventListener("click", () => {
-  btnColour.style.classList.remove("active");
-  btnRainbow.style.classList.add("active");
-  btnEraser.style.classList.remove("active");
-});
+btnRainbow.addEventListener("click", () => {});
 
 btnEraser.addEventListener("click", () => {
   currentColour = "#ffffff";
-  btnColour.style.classList.remove("active");
-  btnRainbow.style.classList.remove("active");
-  btnEraser.style.classList.add("active");
 });
 
 reset.addEventListener("click", (e) => {

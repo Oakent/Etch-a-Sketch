@@ -15,12 +15,21 @@
     <input type="range" min="2" max="100" value="16" id="slider" />
     <p id="currentSize">Current size: 16</p>
     <p>Colour mode</p>
-    <button id="btnColour" class="btn">Colour</button>
+    <label for="btnColour">Pick Colour</label>
+    <input
+      type="radio"
+      id="btnColour"
+      class="btn"
+      name="colourMode"
+      checked="true"
+    />
     <input type="color" name="Pick Colour" id="colorpicker" />
     <br />
-    <button id="btnRainbow" class="btn">Rainbow</button>
+    <label for="btnRainbow">Rainbow</label>
+    <input type="radio" id="btnRainbow" class="btn" name="colourMode" />
     <br />
-    <button id="btnEraser" class="btn">Eraser</button>
+    <label for="btnEraser">Eraser</label>
+    <input type="radio" id="btnEraser" class="btn" name="colourMode" />
     <br />
     <p>Drawing mode</p>
     <label for="mode1">Always drawing</label>
