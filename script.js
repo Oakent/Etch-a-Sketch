@@ -3,6 +3,11 @@ let slider = document.getElementById("slider");
 let current = document.getElementById("currentSize");
 const divs = document.querySelectorAll(".grid-element");
 const reset = document.getElementById("btnReset");
+
+window.addEventListener("DOMContentLoaded", (e) => {
+  createBoard(slider.value);
+});
+
 reset.addEventListener("click", (e) => {
   clearBoard();
   createBoard(slider.value);
