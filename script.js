@@ -81,8 +81,10 @@ draw = () => {
   divs.forEach((square) => {
     square.addEventListener("mouseover", (e) => {
       if ((mouseDown == true && mode == 0) || mode == 1) {
+        if (btnRainbow.checked) {
+          j = j + 0.5;
+        }
         currentColour = changeColour(j);
-        j = j + 0.5;
         square.style.backgroundColor = currentColour;
         square.classList.add("hovered");
       }
@@ -98,6 +100,14 @@ changeColour = (j) => {
     blue = Math.sin(frequency * j + 4) * 129 + 130;
     rgbColour = "rgb(" + red + "," + green + "," + blue + ")";
     currentColour = rgbColour;
+    return currentColour;
+  }
+  if (btnColour.checked == true) {
+    currentColour = colour.value;
+    return currentColour;
+  }
+  if (btnEraser.checked) {
+    currentColour = "#ffffff";
     return currentColour;
   }
 };
